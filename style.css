@@ -1,0 +1,277 @@
+/* ============================================
+   FONTS
+   Drop your licensed Forma DJR files into /fonts
+   using these exact filenames (or edit the src
+   paths below to match whatever you upload).
+   ============================================ */
+
+@font-face {
+  font-family: "Forma DJR Deck";
+  src: url("../fonts/FormaDJRDeck-Regular.woff2") format("woff2"),
+       url("../fonts/FormaDJRDeck-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Forma DJR Deck";
+  src: url("../fonts/FormaDJRDeck-Medium.woff2") format("woff2"),
+       url("../fonts/FormaDJRDeck-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Forma DJR Micro";
+  src: url("../fonts/FormaDJRMicro-Regular.woff2") format("woff2"),
+       url("../fonts/FormaDJRMicro-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Forma DJR Micro";
+  src: url("../fonts/FormaDJRMicro-Medium.woff2") format("woff2"),
+       url("../fonts/FormaDJRMicro-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Computer Modern is open-source (CMU Serif). Loaded via CDN below
+   in each HTML file's <head>, so no @font-face needed here — but if
+   you'd rather self-host it, drop the files in /fonts and add
+   @font-face rules the same way as above. */
+
+/* ============================================
+   TOKENS
+   ============================================ */
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #6b6b6b;
+  --color-rule: #e2e2e2;
+
+  --font-display: "Forma DJR Deck", "Helvetica Neue", Arial, sans-serif;
+  --font-nav: "Forma DJR Micro", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "CMU Serif", "Computer Modern Serif", Georgia, serif;
+
+  --content-width: 760px;
+  --nav-height: 88px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ============================================
+   NAV
+   ============================================ */
+
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px 24px;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 28px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+}
+
+.site-title a {
+  display: block;
+}
+
+.site-nav {
+  display: flex;
+  gap: 36px;
+  font-family: var(--font-nav);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.site-nav > * {
+  position: relative;
+}
+
+.site-nav a {
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  border-bottom-color: var(--color-text);
+}
+
+.has-dropdown {
+  cursor: default;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle:focus-visible,
+.has-dropdown:hover .dropdown-toggle {
+  border-bottom-color: var(--color-text);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-bg);
+  border: 1px solid var(--color-rule);
+  padding: 10px 0;
+  min-width: 240px;
+  display: none;
+  flex-direction: column;
+  z-index: 20;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.has-dropdown:hover .dropdown-menu,
+.has-dropdown:focus-within .dropdown-menu {
+  display: flex;
+}
+
+.dropdown-menu a {
+  padding: 8px 20px;
+  white-space: nowrap;
+  border-bottom: none;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a:focus-visible {
+  background: #f7f7f7;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+
+main {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+/* ============================================
+   HOMEPAGE / ARTWORK PIECE
+   ============================================ */
+
+.piece {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.piece-image {
+  margin: 0 auto 28px;
+  max-width: 100%;
+}
+
+.piece-caption {
+  font-family: var(--font-nav);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.piece-caption .piece-title {
+  font-family: var(--font-body);
+  font-style: italic;
+  color: var(--color-text);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.bio {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.site-footer {
+  text-align: center;
+  padding: 32px 24px;
+  font-family: var(--font-nav);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-rule);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 600px) {
+  .site-title {
+    font-size: 22px;
+  }
+  .site-nav {
+    gap: 22px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  main {
+    padding: 40px 20px 64px;
+  }
+}

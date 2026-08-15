@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ======================================================
+     EDIT ME: page title (shows in browser tab / search results)
+     ====================================================== -->
+<title>Untitled 1–3 | Shane Ackerley</title>
+<meta name="description" content="Untitled 1–3 — an artwork by Shane Ackerley.">
+
+<!-- Computer Modern (open-source, SIL OFL) via CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/serif.css">
+
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-title"><a href="../index.html">Shane Ackerley</a></div>
+  <nav class="site-nav">
+    <a href="../index.html">Home</a>
+    <div class="has-dropdown" tabindex="0">
+      <button class="dropdown-toggle">Artwork</button>
+      <div class="dropdown-menu">
+        <a href="circle-template.html">Circle Template</a>
+        <a href="untitled-toronto.html">Untitled (Toronto)</a>
+        <a href="the-fundamental-physics-of-touch.html">The Fundamental Physics of Touch</a>
+        <a href="ellipsis.html">Ellipsis</a>
+        <a href="proximus.html">Proximus</a>
+        <a href="if.html">If</a>
+        <a href="earth-and-moon.html">Earth and Moon</a>
+        <a href="untitled-ii.html">Untitled 1–3</a>
+        <a href="un-known.html">Unknown</a>
+        <a href="decomposition-amalgamation.html">Decomposition, Amalgamation</a>
+        <a href="on-earth-as-it-is-in-heaven.html">On Earth as it is in Heaven</a>
+      </div>
+    </div>
+    <a href="../files/CV.pdf">CV</a>
+  </nav>
+</header>
+
+<main>
+
+  <div class="piece">
+    <!-- EDIT ME: point this at the image you upload to /images -->
+    <img class="piece-image" src="../images/PIECE-FILENAME.jpg" alt="Untitled 1–3">
+
+    <!-- EDIT ME: title, year, dimensions, medium -->
+    <p class="piece-caption">
+      <span class="piece-title">Untitled 1–3</span>
+      YEAR<br>
+      DIMENSIONS<br>
+      MEDIUM
+    </p>
+  </div>
+
+  <!-- OPTIONAL: delete this <p> entirely if a piece has no description -->
+  <p class="bio">
+    Description of the piece goes here.
+  </p>
+
+</main>
+
+<footer class="site-footer">
+  &copy; <span id="year"></span> Shane Ackerley
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

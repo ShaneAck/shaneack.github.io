@@ -4,25 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- ======================================================
-     EDIT ME: page title (shows in browser tab / search results)
-     ====================================================== -->
+<!-- EDIT ME: page title -->
 <title>Circle Template | Shane Ackerley</title>
 <meta name="description" content="Circle Template — an artwork by Shane Ackerley.">
 
-<!-- Computer Modern (open-source, SIL OFL) via CDN -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/serif.css">
-
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
 <header class="site-header">
-  <div class="site-title"><a href="../index.html">Shane Ackerley</a></div>
+  <div class="site-title"><a href="../index.html">Shane<br>Ackerley</a></div>
   <nav class="site-nav">
     <a href="../index.html">Home</a>
     <div class="has-dropdown" tabindex="0">
-      <button class="dropdown-toggle">Artwork</button>
+      <button class="dropdown-toggle" aria-expanded="false">Artwork</button>
       <div class="dropdown-menu">
         <a href="circle-template.html">Circle Template</a>
         <a href="untitled-toronto.html">Untitled (Toronto)</a>
@@ -44,8 +40,27 @@
 <main>
 
   <div class="piece">
-    <!-- EDIT ME: point this at the image you upload to /images -->
-    <img class="piece-image" src="../images/PIECE-FILENAME.jpg" alt="Circle Template">
+
+    <!-- ===================================================
+         OPTION A — IMAGE (default). Delete Option B below if using this.
+         Point src at a file in /images.
+         =================================================== -->
+    <img class="piece-media" src="../images/PIECE-FILENAME.jpg" alt="Circle Template">
+
+    <!-- ===================================================
+         OPTION B — VIDEO. Delete Option A above and un-comment this
+         to use a video instead of an image for this piece.
+         Point src at a file in /videos. Keep files reasonably small
+         (well-compressed .mp4, ideally under ~50MB) so pages load fast.
+         "controls" lets visitors play/pause/scrub; remove it and add
+         "autoplay muted loop" instead if you want it to play on its own.
+         ===================================================
+
+    <video class="piece-media" controls playsinline poster="../images/PIECE-FILENAME-poster.jpg">
+      <source src="../videos/PIECE-FILENAME.mp4" type="video/mp4">
+    </video>
+
+    -->
 
     <!-- EDIT ME: title, year, dimensions, medium -->
     <p class="piece-caption">
@@ -67,6 +82,7 @@
   &copy; <span id="year"></span> Shane Ackerley
 </footer>
 
+<script src="../js/nav.js"></script>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>

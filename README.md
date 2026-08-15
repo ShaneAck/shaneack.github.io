@@ -1,104 +1,85 @@
 # shaneackerley.com — GitHub Pages site
 
-This is your Wix site rebuilt as plain HTML/CSS, ready to host for free on
-GitHub Pages under your existing domain.
+Your site as plain HTML/CSS, hosted free on GitHub Pages under your existing
+domain. This version includes the redesign: fixed left sidebar nav, optional
+looping background video on the homepage, and support for video (not just
+images) on individual artwork pages.
 
 ## Folder structure
 
 ```
 site/
-├── index.html                  ← homepage (done, uses your real bio text)
+├── index.html                  ← homepage (bio text filled in, ready to go)
 ├── artwork/
-│   ├── circle-template.html    ← 11 pages, one per piece, all placeholders
-│   ├── untitled-toronto.html      to fill in (title/year/dims/medium/desc/image)
-│   ├── ... (9 more)
+│   ├── circle-template.html    ← 11 pages, one per piece
+│   ├── untitled-toronto.html      each has placeholders to fill in
+│   ├── ... (9 more)               (title/year/dims/medium/description/media)
 ├── css/
-│   └── style.css               ← all styling, fonts, layout
-├── fonts/                      ← EMPTY — drop your Forma DJR files here
-├── images/                     ← EMPTY — drop your artwork photos here
-├── files/                      ← EMPTY — drop your CV PDF here as CV.pdf
+│   └── style.css               ← all styling: sidebar nav, layout, fonts
+├── js/
+│   └── nav.js                  ← makes the Artwork dropdown tap-friendly on phones
+├── fonts/                      ← your Forma DJR files (already in place)
+├── images/                     ← drop artwork photos + homepage image here
+├── videos/                     ← drop the homepage background video + any
+│                                  per-piece videos here
+├── files/
+│   └── CV.pdf                  ← already in place
 └── CNAME                       ← tells GitHub to serve shaneackerley.com
 ```
 
-## 1. Add your fonts
+## What's new in this version
 
-Drop your licensed Forma DJR files into `/fonts` using these exact filenames
-(rename them if needed):
+- **Sidebar nav**: fixed in the left margin (matches how it was on Wix),
+  stays in place as you scroll. On phones/narrow screens it automatically
+  collapses to a top bar, since a fixed sidebar doesn't work well on small
+  screens.
+- **No borders**: the gray dividing lines are gone site-wide.
+- **Lowercase site title**: "shane ackerley" — handled in CSS
+  (`text-transform: lowercase`), so it stays lowercase regardless of how
+  it's typed in the HTML.
+- **Nav hover**: text turns gray on hover, no underline.
+- **Artwork captions**: left-aligned, all set in Computer Modern (no mixed
+  fonts).
+- **No background panels**: text sits directly over the page/video with no
+  translucent white box behind it.
 
-- `FormaDJRDeck-Regular.woff2` (or `.otf`)
-- `FormaDJRDeck-Medium.woff2` (or `.otf`)
-- `FormaDJRMicro-Regular.woff2` (or `.otf`)
-- `FormaDJRMicro-Medium.woff2` (or `.otf`)
+## 1. Add your homepage background video (optional)
 
-If your files have different weight names, just edit the `src` paths in
-`css/style.css` (top of the file) to match. `.woff2` is preferred (smaller,
-faster); `.otf` works as a fallback if that's all you have.
+Drop a video file into `/videos` named `homepage-bg.mp4`, and optionally a
+still-frame image into `/images` named `homepage-poster.jpg` (shown briefly
+while the video loads). That's it — `index.html` already references both.
 
-Computer Modern (body text) is already wired up via a free CDN — no action
-needed there.
+It fills the entire screen and crops as needed regardless of the video's
+aspect ratio, and loops automatically, muted, with no controls.
 
-## 2. Add your images
+If you'd rather not use a background video at all, open `index.html`,
+delete the `<div class="bg-video-wrap">...</div>` block near the top of
+`<body>`, and the page will just have a plain white background instead.
 
-Drop each artwork photo into `/images`, then open each page in `/artwork/`
-and:
+## 2. Add your artwork images or videos
 
-1. Replace `PIECE-FILENAME.jpg` in the `<img src="...">` with your actual
-   filename.
-2. Fill in `YEAR`, `DIMENSIONS`, and `MEDIUM` in the caption.
-3. Replace the description paragraph at the bottom (or delete that whole
-   `<p class="bio">...</p>` block if a piece has no description).
+Each file in `/artwork` has two clearly labeled options in the HTML:
+**Option A** (image, default) and **Option B** (video, commented out). For
+each piece:
 
-Do the same for the homepage image (`index.html` — swap out
-`images/homepage-piece.jpg`).
+1. Decide whether it's an image or video piece.
+2. If image: drop the photo in `/images`, update the `src` in Option A,
+   delete the Option B block.
+3. If video: drop the file in `/videos`, delete the Option A block,
+   un-comment Option B, update its `src` (and `poster` if you want a
+   thumbnail shown before playback).
+4. Fill in the title/year/dimensions/medium in the caption, and either
+   write a description or delete the `<p class="bio">` block if there
+   isn't one.
 
-## 3. Add your CV
+Do the same for the homepage's image (`index.html`).
 
-Drop your CV PDF into `/files` and name it exactly `CV.pdf` (or rename it
-and update the link in `index.html` / each artwork page's nav).
+## 3. Push to GitHub
 
-## 4. Push to GitHub
+Replace the contents of your existing `yourusername.github.io` repo with
+everything in this folder (drag-and-drop on github.com, or copy into your
+GitHub Desktop-tracked folder and push — whichever you've been using).
 
-1. Create a GitHub account if you don't have one: github.com
-2. Create a new repository named exactly `yourusername.github.io`
-   (replace `yourusername` with your actual GitHub username — this exact
-   naming makes GitHub Pages activate automatically).
-3. Upload everything inside this `site/` folder into that repo (drag-and-drop
-   works fine on github.com, or use `git push` if you're comfortable with it).
-
-## 5. Turn on GitHub Pages
-
-In the repo: **Settings → Pages → Source → Deploy from branch → main → / (root)**.
-Save. Your site will be live at `https://yourusername.github.io` within a
-minute or two.
-
-## 6. Point your domain at GitHub
-
-Log into wherever `shaneackerley.com` is registered (check your Wix account
-first — domains bought through Wix can still be managed there even after you
-stop using Wix's site builder) and add these DNS records:
-
-**A records** for the root domain (`shaneackerley.com`), pointing to all
-four of GitHub's IPs:
-```
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-```
-
-**CNAME record** for `www`:
-```
-www.shaneackerley.com  →  yourusername.github.io
-```
-
-DNS changes can take a few hours to propagate.
-
-Then in GitHub: **Settings → Pages → Custom domain** → enter
-`shaneackerley.com` → Save. GitHub will verify it (using the CNAME file
-already in this repo) and automatically issue free HTTPS once DNS is
-confirmed. Nothing with "github.io" will ever be visible to visitors.
-
-## 7. Cancel Wix
-
-Once `shaneackerley.com` loads correctly from GitHub Pages, cancel your Wix
-subscription.
+Since your DNS and HTTPS are already set up and working, there's nothing
+further to configure — updating the files in the repo is all that's needed
+for the new design to go live.

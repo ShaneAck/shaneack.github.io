@@ -1,0 +1,13 @@
+Drop video files here:
+
+- homepage-bg.mp4 — the looping background video for the homepage (see index.html)
+- any per-piece videos for artwork pages that use the video option instead
+  of an image (see the comments in each file inside /artwork)
+
+Tips:
+- Keep files well-compressed (.mp4, H.264) — GitHub works best with files
+  under ~50MB, and smaller files load faster for visitors.
+- The homepage background video should be short and loop-friendly (10–30s,
+  no jarring jump cut from end back to start) since it plays on repeat.
+- Aspect ratio doesn't matter — it's set to fill the screen and crop as
+  needed (object-fit: cover), so any dimensions will work.

@@ -1,0 +1,1 @@
+Drop your artwork photos here, then reference them from each page's <img src=...>.

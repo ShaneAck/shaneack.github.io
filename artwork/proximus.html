@@ -16,7 +16,7 @@
 <header class="site-header">
   <div class="site-title"><a href="../index.html">Shane<br>Ackerley</a></div>
   <nav class="site-nav">
-    <a href="../index.html">Home</a>
+    <a href="../index.html">Bio</a>
     <div class="has-dropdown" tabindex="0">
       <button class="dropdown-toggle" aria-expanded="false">Artwork</button>
       <div class="dropdown-menu">
@@ -27,13 +27,13 @@
         <a href="proximus.html">Proximus</a>
         <a href="if.html">If</a>
         <a href="earth-and-moon.html">Earth and Moon</a>
-        <a href="untitled-ii.html">Untitled 1–3</a>
         <a href="un-known.html">Unknown</a>
         <a href="decomposition-amalgamation.html">Decomposition, Amalgamation</a>
         <a href="on-earth-as-it-is-in-heaven.html">On Earth as it is in Heaven</a>
       </div>
     </div>
-    <a href="../files/CV.pdf">CV</a>
+    <a href="../files/CV.pdf" target="_blank">CV</a>
+    <a href="../contact.html">Contact</a>
   </nav>
 </header>
 
@@ -44,8 +44,8 @@
     <!-- ===================================================
          OPTION A — IMAGE (default). Delete Option B below if using this.
          Point src at a file in /images.
-         =================================================== -->
-    <img class="piece-media" src="../images/PIECE-FILENAME.jpg" alt="Proximus">
+         =================================================== --
+    <img class="piece-media" src="../images/PIECE-FILENAME.jpg" alt="Proximus"> -->
 
     <!-- ===================================================
          OPTION B — VIDEO. Delete Option A above and un-comment this
@@ -63,18 +63,36 @@
     -->
 
     <!-- EDIT ME: title, year, dimensions, medium -->
-    <p class="piece-caption">
+    <p style="width: 100px" class="piece-caption">
       <span class="piece-title">Proximus</span>
-      YEAR<br>
-      DIMENSIONS<br>
-      MEDIUM
+      2023<br>
+      2 min 48 sec<br>
+      Video
     </p>
   </div>
 
-  <!-- OPTIONAL: delete this <p> entirely if a piece has no description -->
+  <!-- ======================================================
+     BACKGROUND VIDEO
+     Drop your video file in /videos and update the src below.
+     - Keep it short (10–30s) and loop-friendly (no jump cut).
+     - Compress it well — GitHub repos work best under ~50MB per file,
+       and a smaller file loads faster for visitors.
+     - "poster" shows while the video loads / on very slow connections;
+       point it at a still frame image in /images.
+     - If you'd rather not have a background video, just delete this
+       whole <div class="bg-video-wrap">...</div> block and remove the
+       "has-bg-video" class from <body> above.
+     ====================================================== -->
+    <div class="bg-video-wrap">
+      <video autoplay muted loop class="bg-video" 
+          src="/videos/homepage-bg.mp4" 
+          alt="Background">
+    </div>
+
+  <!-- OPTIONAL: delete this <p> entirely if a piece has no description --
   <p class="bio">
     Description of the piece goes here.
-  </p>
+  </p> -->
 
 </main>
 

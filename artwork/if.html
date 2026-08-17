@@ -16,7 +16,7 @@
 <header class="site-header">
   <div class="site-title"><a href="../index.html">Shane<br>Ackerley</a></div>
   <nav class="site-nav">
-    <a href="../index.html">Home</a>
+    <a href="../index.html">Bio</a>
     <div class="has-dropdown" tabindex="0">
       <button class="dropdown-toggle" aria-expanded="false">Artwork</button>
       <div class="dropdown-menu">
@@ -27,13 +27,13 @@
         <a href="proximus.html">Proximus</a>
         <a href="if.html">If</a>
         <a href="earth-and-moon.html">Earth and Moon</a>
-        <a href="untitled-ii.html">Untitled 1–3</a>
         <a href="un-known.html">Unknown</a>
         <a href="decomposition-amalgamation.html">Decomposition, Amalgamation</a>
         <a href="on-earth-as-it-is-in-heaven.html">On Earth as it is in Heaven</a>
       </div>
     </div>
-    <a href="../files/CV.pdf">CV</a>
+    <a href="../files/CV.pdf" target="_blank">CV</a>
+    <a href="../contact.html">Contact</a>
   </nav>
 </header>
 
@@ -41,35 +41,32 @@
 
   <div class="piece">
 
-    <!-- ===================================================
-         OPTION A — IMAGE (default). Delete Option B below if using this.
-         Point src at a file in /images.
-         =================================================== -->
-    <img class="piece-media" src="../images/PIECE-FILENAME.jpg" alt="If">
-
-    <!-- ===================================================
-         OPTION B — VIDEO. Delete Option A above and un-comment this
-         to use a video instead of an image for this piece.
-         Point src at a file in /videos. Keep files reasonably small
-         (well-compressed .mp4, ideally under ~50MB) so pages load fast.
-         "controls" lets visitors play/pause/scrub; remove it and add
-         "autoplay muted loop" instead if you want it to play on its own.
-         ===================================================
-
-    <video class="piece-media" controls playsinline poster="../images/PIECE-FILENAME-poster.jpg">
-      <source src="../videos/PIECE-FILENAME.mp4" type="video/mp4">
+    <!-- Video with autoplay -->
+    <video class="piece-media" autoplay muted loop playsinline controls>
+      <source src="../videos/If.mp4" type="video/mp4">
     </video>
-
-    -->
 
     <!-- EDIT ME: title, year, dimensions, medium -->
     <p class="piece-caption">
       <span class="piece-title">If</span>
-      YEAR<br>
-      DIMENSIONS<br>
-      MEDIUM
+      2020<br>
+      Video<br>
+      4 min 30 sec
     </p>
   </div>
+
+  <!-- Image carousel for flipping through stills -->
+  <div class="image-carousel">
+    <button class="carousel-btn carousel-prev" onclick="changeImage(-1)">❮</button>
+    <div class="carousel-container">
+      <img id="carousel-image" src="../images/If 4.1.jpg" alt="If">
+    </div>
+    <button class="carousel-btn carousel-next" onclick="changeImage(1)">❯</button>
+  </div>
+
+  <p class="carousel-counter">
+    <span id="current-image">1</span> / <span id="total-images">10</span>
+  </p>
 
   <!-- OPTIONAL: delete this <p> entirely if a piece has no description -->
   <p class="bio">
@@ -85,6 +82,33 @@
 <script src="../js/nav.js"></script>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Image carousel functionality
+  const images = [
+    '../images/If 4.1.jpg',
+    '../images/If 4.2.jpg',
+    '../images/If 4.3.jpg',
+    '../images/If 4.4.jpg',
+    '../images/If 4.5.jpg',
+    '../images/If 4.6.jpg',
+    '../images/If 4.7.jpg',
+    '../images/If 4.8.jpg',
+    '../images/If 4.9.jpg',
+    '../images/If 4.10.jpg'
+  ];
+
+  let currentIndex = 0;
+
+  function changeImage(direction) {
+    currentIndex += direction;
+    if (currentIndex >= images.length) {
+      currentIndex = 0;
+    } else if (currentIndex < 0) {
+      currentIndex = images.length - 1;
+    }
+    document.getElementById('carousel-image').src = images[currentIndex];
+    document.getElementById('current-image').textContent = currentIndex + 1;
+  }
 </script>
 
 </body>

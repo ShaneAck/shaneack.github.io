@@ -111,7 +111,7 @@ img {
 .site-title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 40px;
+  font-size: 50px;
   line-height: 0.8;
   margin: 0 0 10px;
 }
@@ -122,7 +122,7 @@ img {
   gap: 12px;
   font-family: var(--font-nav);
   font-size: 26px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0em;
   line-height: 0.3;
   width: 100%;
 }
@@ -133,10 +133,7 @@ img {
   transition: color 0.15s ease;
 }
 
-.site-nav a:hover,
-.site-nav a:focus-visible {
-  color: var(--color-muted);
-}
+
 
 .has-dropdown {
   position: relative;
@@ -165,12 +162,6 @@ img {
 
 .has-dropdown:hover .dropdown-toggle::after {
   content: ":";
-}
-
-.has-dropdown.open .dropdown-toggle,
-.dropdown-toggle:hover,
-.dropdown-toggle:focus-visible {
-  color: var(--color-muted);
 }
 
 .dropdown-menu {
@@ -252,14 +243,16 @@ main {
    ============================================ */
 
 .piece {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   margin-bottom: 56px;
 }
 
 .piece-media {
-  margin: 0 auto 28px;
-  max-width: 100%;
-  background: #000;
+  margin: 0 0 0 0;
+  max-width: 60%;
+  width: 100%;
 }
 
 video.piece-media {
@@ -269,11 +262,13 @@ video.piece-media {
 
 .piece-caption {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 17px;
   letter-spacing: 0.01em;
-  color: var(--color-muted);
-  line-height: 1.7;
+  color: var(--color-text);
+  line-height: 1.6;
   text-align: left;
+  width: 60%;
+  margin: 20px 0 40px 0;
 }
 
 .piece-caption .piece-title {
@@ -285,11 +280,17 @@ video.piece-media {
 }
 
 .bio {
-  max-width: 640px;
-  margin: 0 auto;
+  max-width: 542px;
+  margin: 0 0 0 0;
   text-align: left;
   font-size: 17px;
   line-height: 1.75;
+}
+
+.piece + .bio {
+  max-width: none;
+  width: 60%;
+  margin: 0 0 0 auto;
 }
 
 .contact-content {
@@ -327,6 +328,67 @@ video.piece-media {
 .contact-list a:hover,
 .contact-list a:focus-visible {
   color: var(--color-muted);
+}
+
+/* ============================================
+   IMAGE CAROUSEL (flip through with arrows)
+   ============================================ */
+
+.image-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 32px 48px;
+  margin-left: var(--sidebar-width);
+  position: relative;
+}
+
+.carousel-container {
+  flex: 1;
+  max-width: 640px;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.carousel-btn {
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: color 0.15s ease;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover,
+.carousel-btn:focus-visible {
+  color: var(--color-muted);
+  outline: none;
+}
+
+.carousel-btn:active {
+  transform: scale(0.95);
+}
+
+.carousel-counter {
+  text-align: center;
+  font-family: var(--font-nav);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--color-muted);
+  margin-left: var(--sidebar-width);
+  margin-top: -16px;
+  margin-bottom: 32px;
 }
 
 /* ============================================
@@ -374,5 +436,26 @@ video.piece-media {
     margin-left: 0;
     max-width: 100%;
     padding: 40px 20px 64px;
+  }
+
+  .image-carousel {
+    padding: 24px 20px;
+    margin-left: 0;
+    gap: 16px;
+  }
+
+  .carousel-container {
+    max-width: 100%;
+  }
+
+  .carousel-btn {
+    font-size: 24px;
+    padding: 4px 12px;
+  }
+
+  .carousel-counter {
+    margin-left: 0;
+    margin-top: -12px;
+    margin-bottom: 24px;
   }
 }

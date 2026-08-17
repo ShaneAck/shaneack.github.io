@@ -29,9 +29,13 @@
        "has-bg-video" class from <body> above.
      ====================================================== -->
 <div class="bg-video-wrap">
-  <video autoplay muted loop playsinline poster="images/homepage-poster.jpg">
-    <source src="videos/homepage-bg.mp4" type="video/mp4">
-  </video>
+  <img class="bg-image" 
+       srcset="images/sky-paper-blank-smallest.webp 640w,
+               images/sky-paper-blank-smaller.webp 1024w,
+               images/sky-paper-blank.webp 1920w"
+       sizes="100vw"
+       src="images/sky-paper-blank.jpeg" 
+       alt="Background">
 </div>
 
 <header class="site-header">
@@ -59,17 +63,6 @@
 </header>
 
 <main>
-
-  <div class="piece">
-    <!-- Replace with your own image filename in /images -->
-    <img class="piece-media" src="images/homepage-piece.jpg" alt="Untitled (d = 50 cm, λ = 5 cm)">
-    <p class="piece-caption">
-      <span class="piece-title">Untitled (d = 50 cm, λ = 5 cm)</span>
-      2025<br>
-      50 cm x 65 cm<br>
-      Ink on paper
-    </p>
-  </div>
 
   <p class="bio">
     Shane Ackerley is an artist and researcher born, raised, and currently based in

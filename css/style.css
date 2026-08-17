@@ -73,6 +73,9 @@ body {
   font-size: 17px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 a {
@@ -208,10 +211,11 @@ main {
   padding: 64px 48px 96px;
   position: relative;
   background: transparent;
+  flex: 1;
 }
 
 .site-footer {
-  margin-left: var(--sidebar-width);
+  margin-left: 0;
   text-align: left;
   padding: 32px 48px;
   font-family: var(--font-nav);
@@ -286,6 +290,43 @@ video.piece-media {
   text-align: left;
   font-size: 17px;
   line-height: 1.75;
+}
+
+.contact-content {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-content h1 {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 0.8;
+  margin: 0 0 32px;
+  font-weight: 400;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.contact-list li {
+  margin-bottom: 16px;
+}
+
+.contact-list a {
+  color: inherit;
+  text-decoration: underline;
+  transition: color 0.15s ease;
+}
+
+.contact-list a:hover,
+.contact-list a:focus-visible {
+  color: var(--color-muted);
 }
 
 /* ============================================

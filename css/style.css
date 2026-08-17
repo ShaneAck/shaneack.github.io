@@ -62,11 +62,12 @@
 
 html {
   scroll-behavior: smooth;
+  background: transparent;
 }
 
 body {
   margin: 0;
-  background: var(--color-bg);
+  background: transparent;
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: 17px;
@@ -206,6 +207,7 @@ main {
   max-width: calc(var(--content-width) + var(--sidebar-width));
   padding: 64px 48px 96px;
   position: relative;
+  background: transparent;
 }
 
 .site-footer {
@@ -301,6 +303,7 @@ video.piece-media {
     padding: 20px 24px;
     border-right: none;
     border-bottom: none;
+    background: transparent;
   }
 
   .site-title {

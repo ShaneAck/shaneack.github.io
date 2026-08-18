@@ -123,7 +123,7 @@ img {
   font-family: var(--font-nav);
   font-size: 26px;
   letter-spacing: 0em;
-  line-height: 0.2;
+  line-height: 0.3;
   width: 100%;
 }
 
@@ -177,7 +177,7 @@ img {
   text-transform: none;
   letter-spacing: normal;
   font-size: 26px;
-  line-height: 0.3;
+  line-height: 0.4;
   z-index: 200;
 }
 

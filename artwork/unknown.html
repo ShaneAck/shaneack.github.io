@@ -14,21 +14,21 @@
 <body>
 
 <header class="site-header">
-  <div class="site-title"><a href="index.html">Shane<br>Ackerley</a></div>
+  <div class="site-title"><a href="../index.html">Shane<br>Ackerley</a></div>
   <nav class="site-nav">
     <div class="has-dropdown" tabindex="0">
       <button class="dropdown-toggle" aria-expanded="false">Artwork</button>
       <div class="dropdown-menu">
-        <a href="artwork/circle-template.html">Circle Template</a>
-        <a href="artwork/untitled-toronto.html">Untitled (Toronto)</a>
-        <a href="artwork/the-fundamental-physics-of-touch.html">The Fundamental Physics of Touch</a>
-        <a href="artwork/ellipsis.html">Ellipsis</a>
-        <a href="artwork/proximus.html">Proximus</a>
-        <a href="artwork/if.html">If</a>
-        <a href="artwork/earth-and-moon.html">Earth and Moon</a>
-        <a href="artwork/un-known.html">Unknown</a>
-        <a href="artwork/decomposition-amalgamation.html">Decomposition, Amalgamation</a>
-        <a href="artwork/on-earth-as-it-is-in-heaven.html">On Earth as it is in Heaven</a>
+        <a href="circle-template.html">Circle Template</a>
+        <a href="untitled-toronto.html">Untitled (Toronto)</a>
+        <a href="the-fundamental-physics-of-touch.html">The Fundamental Physics of Touch</a>
+        <a href="ellipsis.html">Ellipsis</a>
+        <a href="proximus.html">Proximus</a>
+        <a href="if.html">If</a>
+        <a href="earth-and-moon.html">Earth and Moon</a>
+        <a href="unknown.html">Unknown</a>
+        <a href="decomposition-amalgamation.html">Decomposition, Amalgamation</a>
+        <a href="on-earth-as-it-is-in-heaven.html">On Earth as it is in Heaven</a>
       </div>
     </div>
     <div class="has-dropdown" tabindex="0">
@@ -39,7 +39,7 @@
         <a href="https://www.linkedin.com/in/shane-ackerley/" target="_blank">Connect on LinkedIn</a>
         </div>
     </div>
-    <a href="files/CV.pdf" target="_blank">CV</a>
+    <a href="../files/CV.pdf" target="_blank">CV</a>
   </nav>
 </header>
 
@@ -109,6 +109,24 @@
   ];
 
   let currentIndex = 0;
+  let touchStartX = 0;
+
+  const carouselElement = document.querySelector('.image-carousel');
+
+  if (carouselElement) {
+    carouselElement.addEventListener('touchstart', (event) => {
+      touchStartX = event.touches[0].clientX;
+    }, { passive: true });
+
+    carouselElement.addEventListener('touchend', (event) => {
+      const touchEndX = event.changedTouches[0].clientX;
+      const deltaX = touchEndX - touchStartX;
+
+      if (Math.abs(deltaX) > 40) {
+        changeImage(deltaX < 0 ? 1 : -1);
+      }
+    }, { passive: true });
+  }
 
   function changeImage(direction) {
     currentIndex += direction;

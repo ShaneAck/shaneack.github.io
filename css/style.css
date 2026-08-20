@@ -312,7 +312,7 @@ video.piece-media {
   line-height: 1.6;
   text-align: left;
   width: 60%;
-  margin: 20px 0 40px 0;
+  margin: 20px 0 10px 0;
 }
 
 .piece-caption .piece-title {
@@ -334,7 +334,7 @@ video.piece-media {
 .piece + .bio {
   max-width: none;
   width: 60%;
-  margin: 0 0 0 auto;
+  margin: -24px 0 40px auto;
 }
 
 .contact-content {
@@ -613,6 +613,10 @@ video.piece-media {
     margin-right: 0;
     margin-top: 24px;
     text-align: justify;
+  }
+
+  .piece + .bio {
+    margin-top: 4px;
   }
 
   .bio {

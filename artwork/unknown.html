@@ -95,11 +95,6 @@
 <script src="../js/nav.js"></script>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
-<script src="../js/nav.js"></script>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
 
   // Image carousel functionality
   const images = [
@@ -112,8 +107,27 @@
   let touchStartX = 0;
 
   const carouselElement = document.querySelector('.image-carousel');
+  const carouselContainer = document.querySelector('.carousel-container');
+  const isMobileCarousel = window.matchMedia('(max-width: 700px)');
 
-  if (carouselElement) {
+  if (carouselElement && isMobileCarousel.matches) {
+    carouselContainer.replaceChildren();
+    images.forEach((src, index) => {
+      const image = document.createElement('img');
+      image.src = src;
+      image.alt = 'Unknown';
+      image.dataset.index = index;
+      carouselContainer.appendChild(image);
+    });
+
+    carouselContainer.addEventListener('scroll', () => {
+      const nextIndex = Math.round(carouselContainer.scrollLeft / carouselContainer.clientWidth);
+      if (nextIndex !== currentIndex) {
+        currentIndex = nextIndex;
+        document.getElementById('current-image').textContent = currentIndex + 1;
+      }
+    });
+  } else if (carouselElement) {
     carouselElement.addEventListener('touchstart', (event) => {
       touchStartX = event.touches[0].clientX;
     }, { passive: true });
@@ -135,7 +149,11 @@
     } else if (currentIndex < 0) {
       currentIndex = images.length - 1;
     }
-    document.getElementById('carousel-image').src = images[currentIndex];
+    if (isMobileCarousel.matches) {
+      carouselContainer.scrollTo({ left: carouselContainer.clientWidth * currentIndex, behavior: 'smooth' });
+    } else {
+      document.getElementById('carousel-image').src = images[currentIndex];
+    }
     document.getElementById('current-image').textContent = currentIndex + 1;
   }
 </script>

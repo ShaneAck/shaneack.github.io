@@ -255,6 +255,45 @@ video.piece-media {
   max-height: 640px;
 }
 
+.artwork-video {
+  cursor: zoom-in;
+}
+
+.artwork-video:fullscreen {
+  cursor: default;
+  object-fit: contain;
+}
+
+.piece img,
+.carousel-container img {
+  cursor: zoom-in;
+}
+
+.piece img:fullscreen,
+.carousel-container img:fullscreen {
+  cursor: zoom-out;
+  object-fit: contain;
+}
+
+.fullscreen-image:fullscreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+}
+
+.fullscreen-image:fullscreen img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.circle-template-page .fullscreen-image:fullscreen {
+  background: #ffffff;
+}
+
 .piece-caption {
   font-family: var(--font-body);
   font-size: 17px;
@@ -386,6 +425,60 @@ video.piece-media {
   margin-bottom: 32px;
 }
 
+.image-carousel:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  gap: 24px;
+  margin: 0;
+  padding: 24px;
+  background: #000000;
+}
+
+.image-carousel:fullscreen .carousel-container {
+  width: auto;
+  max-width: none;
+  height: 100%;
+}
+
+.image-carousel:fullscreen .carousel-container img {
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.image-carousel:fullscreen .carousel-btn {
+  flex: 0 0 auto;
+  display: flex;
+  color: #ffffff;
+}
+
+.fullscreen-close {
+  display: none;
+}
+
+.fullscreen-image:fullscreen.mobile-fullscreen .fullscreen-close,
+.image-carousel:fullscreen.mobile-fullscreen .fullscreen-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1;
+}
+
 /* ============================================
    RESPONSIVE — collapse sidebar to a top bar on narrow screens
    ============================================ */
@@ -444,7 +537,7 @@ video.piece-media {
     font-size: 22px;
     line-height: 18px;
     margin-top: -7px;
-    margin-bottom: 60px;
+    margin-bottom: 0;
   }
 
   .site-nav > a,
@@ -531,20 +624,30 @@ video.piece-media {
     padding: 0;
     margin: 0;
     gap: 0;
-    touch-action: pan-y;
-    overflow: hidden;
+    touch-action: pan-x pan-y;
   }
 
   .carousel-container {
     width: 100%;
     max-width: 100%;
     flex: 0 0 100%;
-    overflow: hidden;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .carousel-container::-webkit-scrollbar {
+    display: none;
   }
 
   .carousel-container img {
-    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
     display: block;
+    scroll-snap-align: center;
   }
 
   .carousel-btn {

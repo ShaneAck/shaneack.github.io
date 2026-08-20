@@ -43,6 +43,12 @@
   </nav>
 </header>
 
+<div class="bg-video-wrap">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="https://pub-8d0d27eca05c4ec489e86a0fd40632f9.r2.dev/proximus.mp4" type="video/mp4">
+  </video>
+</div>
+
 <main>
 
   <div class="piece">
@@ -53,21 +59,6 @@
          =================================================== --
     <img class="piece-media" src="../images/PIECE-FILENAME.jpg" alt="Proximus"> -->
 
-    <!-- ===================================================
-         OPTION B — VIDEO. Delete Option A above and un-comment this
-         to use a video instead of an image for this piece.
-         Point src at a file in /videos. Keep files reasonably small
-         (well-compressed .mp4, ideally under ~50MB) so pages load fast.
-         "controls" lets visitors play/pause/scrub; remove it and add
-         "autoplay muted loop" instead if you want it to play on its own.
-         ===================================================
-
-    <video class="piece-media" controls playsinline poster="../images/PIECE-FILENAME-poster.jpg">
-      <source src="../videos/PIECE-FILENAME.mp4" type="video/mp4">
-    </video>
-
-    -->
-
     <!-- EDIT ME: title, year, dimensions, medium -->
     <p style="width: 100px" class="piece-caption">
       <span class="piece-title">Proximus</span>
@@ -76,24 +67,6 @@
       Video
     </p>
   </div>
-
-  <!-- ======================================================
-     BACKGROUND VIDEO
-     Drop your video file in /videos and update the src below.
-     - Keep it short (10–30s) and loop-friendly (no jump cut).
-     - Compress it well — GitHub repos work best under ~50MB per file,
-       and a smaller file loads faster for visitors.
-     - "poster" shows while the video loads / on very slow connections;
-       point it at a still frame image in /images.
-     - If you'd rather not have a background video, just delete this
-       whole <div class="bg-video-wrap">...</div> block and remove the
-       "has-bg-video" class from <body> above.
-     ====================================================== -->
-    <div class="bg-video-wrap">
-      <video autoplay muted loop class="bg-video" 
-          src="/videos/homepage-bg.mp4" 
-          alt="Background">
-    </div>
 
   <!-- OPTIONAL: delete this <p> entirely if a piece has no description --
   <p class="bio">

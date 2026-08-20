@@ -206,10 +206,10 @@ main {
 .site-footer {
   margin-left: 0;
   text-align: left;
-  padding: 32px 48px;
+  padding: 32px 32px;
   font-family: var(--font-nav);
   font-size: 11px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: var(--color-muted);
   border-top: none;

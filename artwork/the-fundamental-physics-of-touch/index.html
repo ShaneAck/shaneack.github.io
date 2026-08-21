@@ -5,30 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- EDIT ME: page title -->
-<title>If | Shane Ackerley</title>
-<meta name="description" content="If — an artwork by Shane Ackerley.">
+<title>The Fundamental Physics of Touch | Shane Ackerley</title>
+<meta name="description" content="The Fundamental Physics of Touch — an artwork by Shane Ackerley.">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/serif.css">
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 
 <header class="site-header">
-  <div class="site-title"><a href="../">Shane<br>Ackerley</a></div>
+  <div class="site-title"><a href="../../">Shane<br>Ackerley</a></div>
   <nav class="site-nav">
     <div class="has-dropdown" tabindex="0">
       <button class="dropdown-toggle" aria-expanded="false">Artwork</button>
       <div class="dropdown-menu">
-        <a href="circle-template">Circle Template</a>
-        <a href="untitled-toronto">Untitled (Toronto)</a>
-        <a href="the-fundamental-physics-of-touch">The Fundamental Physics of Touch</a>
-        <a href="ellipsis">Ellipsis</a>
-        <a href="proximus">Proximus</a>
-        <a href="if">If</a>
-        <a href="earth-and-moon">Earth and Moon</a>
-        <a href="unknown">Unknown</a>
-        <a href="decomposition-amalgamation">Decomposition, Amalgamation</a>
-        <a href="on-earth-as-it-is-in-heaven">On Earth as it is in Heaven</a>
+        <a href="../circle-template">Circle Template</a>
+        <a href="../untitled-toronto">Untitled (Toronto)</a>
+        <a href="../the-fundamental-physics-of-touch">The Fundamental Physics of Touch</a>
+        <a href="../ellipsis">Ellipsis</a>
+        <a href="../proximus">Proximus</a>
+        <a href="../if">If</a>
+        <a href="../earth-and-moon">Earth and Moon</a>
+        <a href="../unknown">Unknown</a>
+        <a href="../decomposition-amalgamation">Decomposition, Amalgamation</a>
+        <a href="../on-earth-as-it-is-in-heaven">On Earth as it is in Heaven</a>
       </div>
     </div>
     <div class="has-dropdown" tabindex="0">
@@ -39,7 +39,7 @@
         <a href="https://www.linkedin.com/in/shane-ackerley/" target="_blank">Connect on LinkedIn</a>
         </div>
     </div>
-    <a href="../files/CV.pdf" target="_blank">CV</a>
+    <a href="../../files/CV.pdf" target="_blank">CV</a>
   </nav>
 </header>
 
@@ -47,36 +47,47 @@
 
   <div class="piece">
 
-    <!-- Video with autoplay -->
-    <video class="piece-media artwork-video" autoplay muted loop playsinline preload="metadata">
-      <source src="https://pub-8d0d27eca05c4ec489e86a0fd40632f9.r2.dev/If-4.mp4" type="video/mp4">
+    <!-- ===================================================
+         OPTION A — IMAGE (default). Delete Option B below if using this.
+         Point src at a file in /images.
+         =================================================== -->
+    <div class="image-carousel">
+      <button class="carousel-btn carousel-prev" onclick="changeImage(-1)">❮</button>
+      <div class="carousel-container">
+        <img id="carousel-image" src="../../images/fpt1.jpg" alt="Fig. 1—Hydrogen 1s Orbital">
+      </div>
+      <button class="carousel-btn carousel-next" onclick="changeImage(1)">❯</button>
+    </div>
+    <!-- ===================================================
+         OPTION B — VIDEO. Delete Option A above and un-comment this
+         to use a video instead of an image for this piece.
+         Point src at a file in /videos. Keep files reasonably small
+         (well-compressed .mp4, ideally under ~50MB) so pages load fast.
+         "controls" lets visitors play/pause/scrub; remove it and add
+         "autoplay muted loop" instead if you want it to play on its own.
+         ===================================================
+
+    <video class="piece-media" controls playsinline poster="../../images/PIECE-FILENAME-poster.jpg">
+      <source src="../../videos/PIECE-FILENAME.mp4" type="video/mp4">
     </video>
+
+    -->
 
     <!-- EDIT ME: title, year, dimensions, medium -->
     <p class="piece-caption">
-      <span class="piece-title">If</span>
-      2020<br>
-      Video<br>
-      4 min 30 sec
+      <span class="piece-title">The Fundamental Physics of Touch</span>
+      2024<br>
+      33 x 43 cm<br>
+      Screen print and letterpress on paper<br>
+      Six editions of four
     </p>
   </div>
 
-  <!-- Image carousel for flipping through stills -->
-  <div class="image-carousel">
-    <button class="carousel-btn carousel-prev" onclick="changeImage(-1)">❮</button>
-    <div class="carousel-container">
-      <img id="carousel-image" src="../images/If 4.1.jpg" alt="If">
-    </div>
-    <button class="carousel-btn carousel-next" onclick="changeImage(1)">❯</button>
-  </div>
-
-  <p class="carousel-counter">
-    <span id="current-image">1</span> / <span id="total-images">10</span>
-  </p>
-
   <!-- OPTIONAL: delete this <p> entirely if a piece has no description -->
   <p class="bio">
-    A physical experiment meant to illustrate the chaotic nature of a double pendulum.
+    The screen prints are made from a python program that plots solutions to the Schrödinger equation for electrons in the hydrogen atom at various energy levels.
+    What you see is the pattern that would emerge if you took 20,000 measurements of the electron's position. The Pauli exclusion principle states that these forms
+    are forbidden to overlap. This—along with the electromagnetic force causing electrons to repel—is what keeps atoms separate. Instead of coalescing, we touch.
   </p>
 
 </main>
@@ -91,16 +102,10 @@
 
   // Image carousel functionality
   const images = [
-    '../images/If 4.1.jpg',
-    '../images/If 4.2.jpg',
-    '../images/If 4.3.jpg',
-    '../images/If 4.4.jpg',
-    '../images/If 4.5.jpg',
-    '../images/If 4.6.jpg',
-    '../images/If 4.7.jpg',
-    '../images/If 4.8.jpg',
-    '../images/If 4.9.jpg',
-    '../images/If 4.10.jpg'
+    '../images/fpt1.jpg',
+    '../images/fpt2.jpg',
+    '../images/fpt3.jpg',
+    '../images/fpt4.jpg',
   ];
 
   let currentIndex = 0;
@@ -115,7 +120,7 @@
     images.forEach((src, index) => {
       const image = document.createElement('img');
       image.src = src;
-      image.alt = 'If';
+      image.alt = 'The Fundamental Physics of Touch';
       image.dataset.index = index;
       carouselContainer.appendChild(image);
     });

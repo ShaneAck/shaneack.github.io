@@ -315,6 +315,17 @@ video.piece-media {
   margin: 20px 0 10px 0;
 }
 
+.piece-description {
+  font-family: var(--font-body);
+  font-size: 17px;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+  line-height: 1.6;
+  text-align: left;
+  width: 60%;
+  margin: 20px 0 10px 0;
+}
+
 .piece-caption .piece-title {
   font-family: var(--font-body);
   font-style: italic;

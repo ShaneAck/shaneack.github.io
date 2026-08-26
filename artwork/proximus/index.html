@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/serif.css">
 <link rel="stylesheet" href="../../css/style.css">
 </head>
-<body class="proximus-page">
+<body>
 
 <header class="site-header">
   <div class="site-title"><a href="../../">Shane<br>Ackerley</a></div>
@@ -43,12 +43,6 @@
   </nav>
 </header>
 
-<div class="bg-video-wrap">
-  <video autoplay muted loop playsinline preload="metadata">
-    <source src="https://pub-8d0d27eca05c4ec489e86a0fd40632f9.r2.dev/proximus.mp4" type="video/mp4">
-  </video>
-</div>
-
 <main>
 
   <div class="piece">
@@ -59,8 +53,12 @@
          =================================================== --
     <img class="piece-media" src="../../images/PIECE-FILENAME.jpg" alt="Proximus"> -->
 
+    <video class="piece-media artwork-video" autoplay muted loop playsinline preload="metadata">
+      <source src="https://pub-8d0d27eca05c4ec489e86a0fd40632f9.r2.dev/proximus.mp4" type="video/mp4">
+    </video>
+
     <!-- EDIT ME: title, year, dimensions, medium -->
-    <p style="width: 100px" class="piece-caption">
+    <p class="piece-caption">
       <span class="piece-title">Proximus</span>
       2023<br>
       2 min 48 sec<br>
@@ -68,10 +66,22 @@
     </p>
   </div>
 
-  <!-- OPTIONAL: delete this <p> entirely if a piece has no description --
-  <p class="bio">
-    Description of the piece goes here.
-  </p> -->
+  <div class="bio">
+    <p>Within the universe, there are no isolated systems. Each thing has some influence on each other,
+    however small or indirect. Life can be overwhelming when we try to account for all our
+    interactions.</p>
+    <p>The pull we feel from people and things, like the gravitational attraction from one planet
+    to another, depends on their proximity to us. And like the motion of celestial bodies, so much as
+    one additional entity entirely changes—and often eliminates—the stability of a system.</p>
+    <p>Love gives us access to moments where we feel only the gravity of our immediate
+    surroundings. Moments that are insulated, like when I play music with my family. When I laugh
+    with my friends. When I stand by the ocean with my partner, and when I see the stars. In these
+    moments love dominates and disorder dims.</p>
+    <p><span style="font-style: italic;">Proximus</span> shows how two loved ones would interact under only the force of their mutual
+    gravity. The waves at Nauset beach in Cape Cod show through the silhouettes of two spheres in a binary orbit.
+    The objects have masses and diameters proportional to the weights and heights of my partner and
+    me. This is a simulation of an isolated system.</p>
+  </div>
 
 </main>
 
@@ -79,7 +89,7 @@
   &copy; <span id="year"></span> Shane Ackerley
 </footer>
 
-<script src="../js/nav.js"></script>
+<script src="../../js/nav.js"></script>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>

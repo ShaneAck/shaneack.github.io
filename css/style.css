@@ -533,17 +533,6 @@ video.piece-media {
     gap: 8px;
   }
 
-  .proximus-page .bg-video-wrap {
-    height: 70vh;
-    bottom: auto;
-    height: 70dvh;
-  }
-
-  .proximus-page {
-    min-height: 70vh;
-    min-height: 70dvh;
-  }
-
   .site-title {
     margin: 0;
     font-size: 28px;

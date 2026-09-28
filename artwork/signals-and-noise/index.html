@@ -50,10 +50,22 @@
       <source src="https://pub-8d0d27eca05c4ec489e86a0fd40632f9.r2.dev/nuitblanche_test.mp4" type="video/mp4">
     </video>
 
-    <p class="piece-description">
-      On 3 October 2026, for Nuit Blanche, an installation was shown at the Humber Cultural Hub presented by Arts Etobicoke.
+    <p class="bio">
+      You participated in the making of a dataset during Nuit Blanche on <span id="scan-time"></span>.
     </p>
+    <p class="bio">
+      Take a screenshot now to remember the time. Bookmark this page to remember the site. Once the data has been processed, it will be uploaded here for you to view.
   </div>
+
+
+<script>
+  const now = new Date();
+  document.getElementById("scan-time").textContent =
+    now.toLocaleString(undefined, {
+      dateStyle: "long",
+      timeStyle: "medium"
+    });
+</script>
 
 </main>
 

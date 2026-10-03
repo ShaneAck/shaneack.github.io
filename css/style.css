@@ -342,6 +342,14 @@ video.piece-media {
   line-height: 1.45;
 }
 
+.signals-and-noise-copy .bio + .bio {
+  margin-top: 1em;
+}
+
+.signals-and-noise-copy .piece-title {
+  font-style: italic;
+}
+
 .piece + .bio {
   max-width: none;
   width: 60%;

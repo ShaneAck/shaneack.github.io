@@ -312,7 +312,7 @@ video.piece-media {
   line-height: 1.6;
   text-align: left;
   width: 60%;
-  margin: 20px 0 10px 0;
+  margin: 10px 0 10px 0;
 }
 
 .video-embed {
@@ -485,7 +485,7 @@ video.piece-media {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 12px 0 32px;
+  margin: 12px 0 8px;
   font-family: var(--font-nav);
   font-size: 15px;
   letter-spacing: 0;

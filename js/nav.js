@@ -166,4 +166,11 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    var steps = document.querySelectorAll(".carousel-step");
+    if (steps.length !== 2) return;
+    steps[event.key === "ArrowLeft" ? 0 : 1].click();
+  });
 });

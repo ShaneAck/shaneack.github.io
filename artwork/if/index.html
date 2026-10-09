@@ -19,6 +19,7 @@
     <div class="has-dropdown" tabindex="0">
       <button class="dropdown-toggle" aria-expanded="false">Artwork</button>
       <div class="dropdown-menu">
+        <a href="../signals-and-noise">Signals and Noise</a>
         <a href="../circle-template">Circle Template</a>
         <a href="../untitled-toronto">Untitled (Toronto)</a>
         <a href="../the-fundamental-physics-of-touch">The Fundamental Physics of Touch</a>
@@ -62,17 +63,16 @@
   </div>
 
   <!-- Image carousel for flipping through stills -->
-  <div class="image-carousel">
-    <button class="carousel-btn carousel-prev" onclick="changeImage(-1)">❮</button>
+  <div class="image-carousel image-carousel-wide">
     <div class="carousel-container">
       <img id="carousel-image" src="../../images/If 4.1.jpg" alt="If">
     </div>
-    <button class="carousel-btn carousel-next" onclick="changeImage(1)">❯</button>
+  <div class="carousel-controls">
+    <button class="carousel-step" type="button" onclick="changeImage(-1)">Previous</button>
+    <span class="carousel-position"><span id="current-image">1</span> / <span id="total-images">10</span></span>
+    <button class="carousel-step" type="button" onclick="changeImage(1)">Next</button>
   </div>
-
-  <p class="carousel-counter">
-    <span id="current-image">1</span> / <span id="total-images">10</span>
-  </p>
+  </div>
 
   <!-- OPTIONAL: delete this <p> entirely if a piece has no description -->
   <p class="bio">

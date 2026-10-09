@@ -18,6 +18,7 @@
     <div class="has-dropdown" tabindex="0">
       <button class="dropdown-toggle" aria-expanded="false">Artwork</button>
       <div class="dropdown-menu">
+        <a href="../signals-and-noise">Signals and Noise</a>
         <a href="../circle-template">Circle Template</a>
         <a href="../untitled-toronto">Untitled (Toronto)</a>
         <a href="../the-fundamental-physics-of-touch">The Fundamental Physics of Touch</a>
@@ -46,25 +47,47 @@
 
   <div class="piece signals-and-noise-copy">
     <p class="bio">
-      You participated in the making of a communal dataset during Nuit Blanche 2026.
-    </p>
-    <p class="bio">
-      Once the data has been processed, it will be uploaded here for you to view.
-    </p>
-    <p class="bio">
-      Thank you for your contribution. <span class="piece-title">Making Space: Signals and Noise</span> was presented by <a href="https://www.artsetobicoke.com/" target="_blank" style="text-decoration: underline;">Arts Etobicoke</a> and hosted by <a href="https://humber.ca/cultural-hub/" target="_blank" style="text-decoration: underline;">Humber Cultural Hub</a>.
+      <span class="piece-title">Making Space: Signals and Noise</span> was a two-part installation open to the public for one night only as part of Nuit Blanche Toronto 2026. The work was presented by <a href="https://www.artsetobicoke.com/" target="_blank" style="text-decoration: underline;">Arts Etobicoke</a> and hosted at the <a href="https://humber.ca/cultural-hub/" target="_blank" style="text-decoration: underline;">Humber Cultural Hub</a> in Etobicoke, Ontario. Both installations invited visitors to collaborate in the construction of a dataset, challenging how scientists produce information and what stories we tell. If you participated in the work and made a note of the time, you may be able to find your contribution in the videos below.
     </p>
   </div>
 
+  <!-- ARTWORK 1 -->
+  <div class="piece">
+    <div class="video-embed">
+      <iframe src="https://www.youtube-nocookie.com/embed/gScpULpmspQ?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1&cc_load_policy=0" title="Title 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <!-- EDIT ME: title, year, dimensions, medium -->
+    <p class="piece-caption">
+      <span class="piece-title">Making Noise</span>
+      2026<br>
+      Video (visualization produced from activity log)<br>
+      12 hr.
+    </p>
+  </div>
 
-<script>
-  const now = new Date();
-  document.getElementById("scan-time").textContent =
-    now.toLocaleString(undefined, {
-      dateStyle: "long",
-      timeStyle: "medium"
-    });
-</script>
+  <!-- ARTWORK 2 -->
+  <div class="piece">
+    <div class="video-embed">
+      <iframe src="https://www.youtube-nocookie.com/embed/PFnjejgjjCQ?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1&cc_load_policy=0" title="Title 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <!-- EDIT ME: title, year, dimensions, medium -->
+    <p class="piece-caption">
+      <span class="piece-title">Making Signals</span>
+      2026<br>
+      Video (live recording from event-based camera)<br>
+      12 hr.
+    </p>
+  </div>
+
+  <!-- Image carousel (hidden until photos are added in the script below) -->
+  <div class="image-carousel image-carousel-wide" id="carousel">
+    <div class="carousel-container"></div>
+  <div class="carousel-controls" id="carousel-counter">
+    <button class="carousel-step" id="carousel-prev" type="button">Previous</button>
+    <span class="carousel-position"><span id="current-image">1</span> / <span id="total-images">1</span></span>
+    <button class="carousel-step" id="carousel-next" type="button">Next</button>
+  </div>
+  </div>
 
 </main>
 
@@ -75,6 +98,78 @@
 <script src="../../js/nav.js"></script>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // EDIT ME: photo paths for the carousel
+  const images = [
+    '../../images/signals-and-noise-images/signals-noise-1.JPG',
+    '../../images/signals-and-noise-images/signals-noise-2.JPG',
+    '../../images/signals-and-noise-images/signals-noise-3.JPG',
+    '../../images/signals-and-noise-images/signals-noise-4.JPG',
+    '../../images/signals-and-noise-images/signals-noise-5.JPG',
+    '../../images/signals-and-noise-images/signals-noise-6.JPG',
+    '../../images/signals-and-noise-images/signals-noise-7.JPG',
+    '../../images/signals-and-noise-images/signals-noise-8.JPG',
+    '../../images/signals-and-noise-images/signals-noise-9.JPG',
+    '../../images/signals-and-noise-images/signals-noise-10.jpg',
+    '../../images/signals-and-noise-images/signals-noise-11.JPG',
+    '../../images/signals-and-noise-images/signals-noise-12.JPG'
+  ];
+
+  const carousel = document.getElementById('carousel');
+  const counter = document.getElementById('carousel-counter');
+  const container = carousel.querySelector('.carousel-container');
+  const current = document.getElementById('current-image');
+  const isMobile = window.matchMedia('(max-width: 700px)');
+  let index = 0;
+  let touchStartX = 0;
+
+  if (!images.length) {
+    carousel.style.display = 'none';
+    counter.style.display = 'none';
+  } else {
+    document.getElementById('total-images').textContent = images.length;
+
+    function render() {
+      container.replaceChildren();
+      (isMobile.matches ? images : [images[index]]).forEach((src) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = 'Signals and Noise';
+        container.appendChild(img);
+      });
+      if (isMobile.matches) container.scrollLeft = container.clientWidth * index;
+    }
+
+    function change(direction) {
+      index = (index + direction + images.length) % images.length;
+      if (isMobile.matches) {
+        container.scrollTo({ left: container.clientWidth * index, behavior: 'smooth' });
+      } else {
+        container.querySelector('img').src = images[index];
+      }
+      current.textContent = index + 1;
+    }
+
+    document.getElementById('carousel-prev').addEventListener('click', () => change(-1));
+    document.getElementById('carousel-next').addEventListener('click', () => change(1));
+
+    container.addEventListener('scroll', () => {
+      if (!isMobile.matches) return;
+      index = Math.round(container.scrollLeft / container.clientWidth);
+      current.textContent = index + 1;
+    });
+
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    carousel.addEventListener('touchend', (e) => {
+      const deltaX = e.changedTouches[0].clientX - touchStartX;
+      if (!isMobile.matches && Math.abs(deltaX) > 40) change(deltaX < 0 ? 1 : -1);
+    }, { passive: true });
+
+    isMobile.addEventListener('change', render);
+    render();
+  }
 </script>
 
 </body>
